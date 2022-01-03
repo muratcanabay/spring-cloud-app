@@ -26,12 +26,12 @@ public class AccountApi {
     }
 
     @PutMapping
-    public ResponseEntity<Account> update(@RequestBody Account account) {
-        return ResponseEntity.ok(accountService.update(account));
+    public ResponseEntity<Account> update(@PathVariable String id, @RequestBody Account account) {
+        return ResponseEntity.ok(accountService.update(id, account));
     }
 
     @DeleteMapping
     public void delete(@PathVariable String id) {
-        ResponseEntity.ok(accountService.delete(id));
+        accountService.delete(id);
     }
 }

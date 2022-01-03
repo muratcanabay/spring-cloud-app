@@ -1,41 +1,41 @@
 package com.muratcanabay.cloudapp.entity;
 
-public class Account {
+import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
-    private String id;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.UUID;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
+@Table(value = "accounts")
+public class Account implements Serializable {
+
+    @PrimaryKey
+    private String id = UUID.randomUUID().toString();
+
+    @Column(value = "uname")
     private String username;
+
+    @Column(value = "email")
     private String email;
+
+    @Column(value = "pwd")
     private String password;
 
-    public String getId() {
-        return id;
-    }
+    @CreatedDate
+    @Column(value = "created_at")
+    private Date createdAt;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    @Column(value = "is_active")
+    private Boolean isActive;
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
