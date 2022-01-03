@@ -5,6 +5,8 @@ import com.muratcanabay.cloudapp.service.AccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/account")
 public class AccountApi {
@@ -34,4 +36,10 @@ public class AccountApi {
     public void delete(@PathVariable String id) {
         accountService.delete(id);
     }
+
+    @GetMapping
+    public ResponseEntity<List<Account>> findAll() {
+        return ResponseEntity.ok(accountService.findAll());
+    }
+
 }

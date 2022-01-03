@@ -39,5 +39,8 @@ public class CassandraConfiguration extends AbstractCassandraConfiguration {
         return SchemaAction.CREATE_IF_NOT_EXISTS;
     }
 
-
+    @Override
+    public String[] getEntityBasePackages() {
+        return new String[] {"com.muratcanabay.cloudapp"};
+    }
 }

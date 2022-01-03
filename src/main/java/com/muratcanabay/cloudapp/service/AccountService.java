@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class AccountService {
@@ -27,5 +29,9 @@ public class AccountService {
 
     public void delete(String id) {
         accountRepository.delete(accountRepository.findById(id).orElseThrow(IllegalAccessError::new));
+    }
+
+    public List<Account> findAll() {
+        return accountRepository.findAll();
     }
 }
