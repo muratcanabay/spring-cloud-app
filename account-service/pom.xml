@@ -6,7 +6,7 @@
         <groupId>com.muratcanabay</groupId>
         <artifactId>service-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/>
+        <relativePath>../service-parent/pom.xml</relativePath>
     </parent>
 
     <groupId>com.mabay</groupId>
@@ -37,8 +37,12 @@
         <!-- Eureka -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-            <version>1.4.7.RELEASE</version>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
         </dependency>
 
         <dependency>
