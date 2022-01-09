@@ -2,7 +2,23 @@ version: '3.8'
 
 services:
   cassandra:
-    image: cassandra
+    image: cassandra:4.0.1
     container_name: 'cassandraDB'
     ports:
     - '9042:9042'
+
+  mysql:
+    image: mysql:8.0.27
+    container_name: 'MysqlDB'
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  elasticsearch:
+    image: elasticsearch:7.16.2
+    container_name: 'ElasticSearch'
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+    environment:
+      discovery.type: single-node
