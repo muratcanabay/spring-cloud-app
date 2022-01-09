@@ -12,7 +12,7 @@
     <groupId>com.mabay</groupId>
     <artifactId>account-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>account-service</name>
+    <name>Account Service</name>
     <description>Account Microservice</description>
 
     <properties>

@@ -1,16 +1,9 @@
 server:
-  port: 8501
+  port: 8502
 
 spring:
   application:
-    name: Account Service
-  data:
-    cassandra:
-      contact-points: 127.0.0.1
-      keyspace-name: account
-      port: 9042
-      schema-action: CREATE_IF_NOT_EXISTS
-      base-packages: com.mabay.accountservice
+    name: Ticket Service
 
 eureka:
   client:
