@@ -1,11 +1,11 @@
 package com.mabay.accountservice.api;
 
+import com.mabay.accountservice.dto.AccountDto;
 import com.mabay.accountservice.service.AccountService;
-import com.mabay.accountservice.entity.Account;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/account")
@@ -18,28 +18,28 @@ public class AccountApi {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Account> get(@PathVariable String id) {
+    public ResponseEntity<AccountDto> get(@PathVariable String id) {
         return ResponseEntity.ok(accountService.get(id));
     }
 
     @PostMapping
-    public ResponseEntity<Account> save(@RequestBody Account account) {
-        return ResponseEntity.ok(accountService.save(account));
+    public ResponseEntity<AccountDto> save(@RequestBody AccountDto accountDto) {
+        return ResponseEntity.ok(accountService.save(accountDto));
     }
 
-    @PutMapping
-    public ResponseEntity<Account> update(@PathVariable String id, @RequestBody Account account) {
-        return ResponseEntity.ok(accountService.update(id, account));
+    @PutMapping("/{id}")
+    public ResponseEntity<AccountDto> update(@PathVariable String id, @RequestBody AccountDto accountDto) {
+        return ResponseEntity.ok(accountService.update(id, accountDto));
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
         accountService.delete(id);
     }
 
     @GetMapping
-    public ResponseEntity<List<Account>> findAll() {
-        return ResponseEntity.ok(accountService.findAll());
+    public ResponseEntity<Slice<AccountDto>> findAll(Pageable pageable) {
+        return ResponseEntity.ok(accountService.findAll(pageable));
     }
 
 }
