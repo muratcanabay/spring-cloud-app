@@ -27,20 +27,6 @@
             <artifactId>spring-boot-starter-data-cassandra</artifactId>
         </dependency>
 
-        <!-- Lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- Model Mapper -->
-        <dependency>
-            <groupId>org.modelmapper</groupId>
-            <artifactId>modelmapper</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-
         <!-- Caffeine Cache used to get rid of console WARN! -->
         <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>

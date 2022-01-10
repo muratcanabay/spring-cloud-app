@@ -2,6 +2,7 @@ package com.mabay.accountservice.api;
 
 import com.mabay.accountservice.dto.AccountDto;
 import com.mabay.accountservice.service.AccountService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.http.ResponseEntity;
@@ -9,13 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/account")
+@RequiredArgsConstructor
 public class AccountApi {
 
     private final AccountService accountService;
-
-    public AccountApi(AccountService accountService) {
-        this.accountService = accountService;
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<AccountDto> get(@PathVariable String id) {

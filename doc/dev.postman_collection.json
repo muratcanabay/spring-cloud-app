@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "aba4e2be-272d-4a29-8cd2-89d72c2c4f1d",
+		"name": "dev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "microservice-app",
+			"item": [
+				{
+					"name": "saveTicket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Test Ticket01\",\r\n    \"notes\": \"Fix account findAll method\",\r\n    \"assignee\": \"Murat Can Abay\",\r\n    \"priorityType\": \"URGENT\",\r\n    \"ticketStatus\": \"OPEN\",\r\n    \"ticketDate\": \"2022-01-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8502/ticket",
+							"host": [
+								"localhost"
+							],
+							"port": "8502",
+							"path": [
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
