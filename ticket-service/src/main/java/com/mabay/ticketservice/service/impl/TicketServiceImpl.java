@@ -5,7 +5,7 @@ import com.mabay.ticketservice.entity.PriorityType;
 import com.mabay.ticketservice.entity.Ticket;
 import com.mabay.ticketservice.entity.TicketStatus;
 import com.mabay.ticketservice.entity.elasticsearch.TicketModel;
-import com.mabay.ticketservice.repository.TicketRepository;
+import com.mabay.ticketservice.repository.mysql.TicketRepository;
 import com.mabay.ticketservice.repository.elasticsearch.TicketElasticRepository;
 import com.mabay.ticketservice.service.TicketService;
 import lombok.RequiredArgsConstructor;
@@ -28,21 +28,23 @@ public class TicketServiceImpl implements TicketService {
     public TicketDto save(TicketDto ticketDto) {
         Ticket ticket = new Ticket();
 
-        // TODO: Check assignee from account-service
         if (ticketDto.getDescription() == null)
             throw new IllegalArgumentException("Description field can not be empty");
 
+        // TODO: Check assignee from account-service
+        ticket.setDescription(ticketDto.getDescription());
         ticket.setNotes(ticketDto.getNotes());
-        ticket.setAssignee(ticketDto.getAssignee());
         ticket.setTicketDate(ticketDto.getTicketDate());
         ticket.setPriorityType(PriorityType.valueOf(ticketDto.getPriorityType()));
         ticket.setTicketStatus(TicketStatus.valueOf(ticketDto.getTicketStatus()));
+
         ticket = ticketRepository.save(ticket);
 
         TicketModel ticketModel = TicketModel.builder()
                 .id(ticket.getId())
                 .description(ticket.getDescription())
                 .notes(ticket.getNotes())
+                .assignee(ticket.getAssignee())
                 .ticketDate(ticket.getTicketDate())
                 .priorityType(ticket.getPriorityType().getLabel())
                 .ticketStatus(ticket.getTicketStatus().getLabel())

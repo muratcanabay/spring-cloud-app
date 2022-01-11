@@ -7,8 +7,8 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@EnableJpaRepositories("com.mabay")
-@EnableElasticsearchRepositories
+@EnableJpaRepositories(basePackages = "com.mabay.ticketservice.repository.mysql")
+@EnableElasticsearchRepositories(basePackages = "com.mabay.ticketservice.repository.elasticsearch")
 public class TicketConfiguration {
 
     @Bean
