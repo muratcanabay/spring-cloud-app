@@ -13,7 +13,6 @@ import org.springframework.util.Assert;
 
 import java.util.Optional;
 
-// TODO: fix findAll
 @Service
 @RequiredArgsConstructor
 public class AccountService {

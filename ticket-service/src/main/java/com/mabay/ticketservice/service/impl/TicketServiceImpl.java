@@ -12,7 +12,9 @@ import com.mabay.ticketservice.repository.mysql.TicketRepository;
 import com.mabay.ticketservice.service.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -77,6 +79,9 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public Page<TicketDto> getPagination(Pageable pageable) {
-        return null;
+        TypeToken<Page<TicketDto>> typeToken = new TypeToken<>() {
+        };
+        Page<Ticket> tickets = ticketRepository.findAll(PageRequest.of(0, 20));
+        return modelMapper.map(tickets, typeToken.getType());
     }
 }
