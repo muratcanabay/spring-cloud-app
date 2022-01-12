@@ -20,7 +20,7 @@ import java.util.UUID;
 public class Account implements Serializable {
 
     @PrimaryKey
-    private String id = UUID.randomUUID().toString();
+    private String id;
 
     @Column(value = "uname")
     private String username;

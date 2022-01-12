@@ -1,4 +1,4 @@
-package com.mabay.accountservice.dto;
+package com.mabay.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +18,8 @@ public class AccountDto {
     private String surname;
     private String email;
     private Date birthDate;
+
+    public String getUsernameSurname() {
+        return this.name + " " + this.surname;
+    }
 }

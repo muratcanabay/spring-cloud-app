@@ -1,19 +1,24 @@
 package com.mabay.ticketservice.service.impl;
 
+import com.mabay.AccountServiceClient;
+import com.mabay.dto.AccountDto;
 import com.mabay.ticketservice.dto.TicketDto;
 import com.mabay.ticketservice.entity.PriorityType;
 import com.mabay.ticketservice.entity.Ticket;
 import com.mabay.ticketservice.entity.TicketStatus;
 import com.mabay.ticketservice.entity.elasticsearch.TicketModel;
-import com.mabay.ticketservice.repository.mysql.TicketRepository;
 import com.mabay.ticketservice.repository.elasticsearch.TicketElasticRepository;
+import com.mabay.ticketservice.repository.mysql.TicketRepository;
 import com.mabay.ticketservice.service.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -21,19 +26,23 @@ public class TicketServiceImpl implements TicketService {
 
     private final TicketRepository ticketRepository;
     private final TicketElasticRepository ticketElasticRepository;
+    private final AccountServiceClient accountServiceClient;
     private final ModelMapper modelMapper;
 
     @Override
     @Transactional
     public TicketDto save(TicketDto ticketDto) {
-        Ticket ticket = new Ticket();
 
         if (ticketDto.getDescription() == null)
             throw new IllegalArgumentException("Description field can not be empty");
 
-        // TODO: Check assignee from account-service
+        Ticket ticket = new Ticket();
+
+        ResponseEntity<AccountDto> accountDtoResponseEntity = accountServiceClient.get(ticketDto.getAssignee());
+
         ticket.setDescription(ticketDto.getDescription());
         ticket.setNotes(ticketDto.getNotes());
+        ticket.setAssignee(Objects.requireNonNull(accountDtoResponseEntity.getBody()).getId());
         ticket.setTicketDate(ticketDto.getTicketDate());
         ticket.setPriorityType(PriorityType.valueOf(ticketDto.getPriorityType()));
         ticket.setTicketStatus(TicketStatus.valueOf(ticketDto.getTicketStatus()));
@@ -44,7 +53,7 @@ public class TicketServiceImpl implements TicketService {
                 .id(ticket.getId())
                 .description(ticket.getDescription())
                 .notes(ticket.getNotes())
-                .assignee(ticket.getAssignee())
+                .assignee(Objects.requireNonNull(accountDtoResponseEntity.getBody()).getUsernameSurname())
                 .ticketDate(ticket.getTicketDate())
                 .priorityType(ticket.getPriorityType().getLabel())
                 .ticketStatus(ticket.getTicketStatus().getLabel())
@@ -63,7 +72,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public TicketDto getById(String id) {
-        return null;
+        return modelMapper.map(ticketRepository.getById(id), TicketDto.class);
     }
 
     @Override

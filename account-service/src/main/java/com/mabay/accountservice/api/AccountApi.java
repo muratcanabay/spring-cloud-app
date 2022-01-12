@@ -1,7 +1,7 @@
 package com.mabay.accountservice.api;
 
-import com.mabay.accountservice.dto.AccountDto;
 import com.mabay.accountservice.service.AccountService;
+import com.mabay.dto.AccountDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;

@@ -25,7 +25,7 @@ public class Ticket extends BaseEntity {
     @Column(name = "notes", length = 4000)
     private String notes;
 
-    @Column(name = "assignee", length = 32)
+    @Column(name = "assignee", length = 64)
     private String assignee;
 
     @Column(name = "ticket_date")

@@ -1,8 +1,8 @@
 package com.mabay.accountservice.service;
 
-import com.mabay.accountservice.dto.AccountDto;
 import com.mabay.accountservice.entity.Account;
 import com.mabay.accountservice.repository.AccountRepository;
+import com.mabay.dto.AccountDto;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Pageable;
