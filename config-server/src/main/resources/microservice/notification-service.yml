@@ -4,7 +4,23 @@ server:
 spring:
   application:
     name: notification-service
-
+  rabbitmq:
+    username: rabbitmq
+    password: rabbitmq
+  cloud:
+    stream:
+      function:
+        definition: ticketReceiver
+      bindings:
+        ticketReceiver-in-0:
+          destination: ticket-queue
+          group: ticket-group
+          content-type: application/json
+      rabbit:
+        bindings:
+          ticketReceiver-in-0:
+            consumer:
+              auto-bind-dlq: true
 eureka:
   client:
     serviceUrl:

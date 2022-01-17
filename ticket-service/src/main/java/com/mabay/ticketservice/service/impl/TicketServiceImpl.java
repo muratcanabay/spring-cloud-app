@@ -9,6 +9,7 @@ import com.mabay.ticketservice.entity.TicketStatus;
 import com.mabay.ticketservice.entity.elasticsearch.TicketModel;
 import com.mabay.ticketservice.repository.elasticsearch.TicketElasticRepository;
 import com.mabay.ticketservice.repository.mysql.TicketRepository;
+import com.mabay.ticketservice.service.TicketNotificationService;
 import com.mabay.ticketservice.service.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -29,6 +30,7 @@ public class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;
     private final TicketElasticRepository ticketElasticRepository;
     private final AccountServiceClient accountServiceClient;
+    private final TicketNotificationService ticketNotificationService;
     private final ModelMapper modelMapper;
 
     @Override
@@ -64,6 +66,7 @@ public class TicketServiceImpl implements TicketService {
         ticketElasticRepository.save(ticketModel);
 
         ticketDto.setId(ticket.getId());
+        ticketNotificationService.sendTicket(ticket);
         return ticketDto;
     }
 

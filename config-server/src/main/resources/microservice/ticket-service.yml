@@ -13,6 +13,14 @@ spring:
     database: mysql
     hibernate:
       ddl-auto: update
+  rabbitmq:
+    username: rabbitmq
+    password: rabbitmq
+  cloud:
+    stream:
+      bindings:
+        ticketSender:
+          destination: ticket-queue
 
 eureka:
   client:
