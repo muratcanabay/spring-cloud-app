@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>service-parent</artifactId>
         <groupId>com.muratcanabay</groupId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../service-parent/pom.xml</relativePath>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mabay</groupId>
     <artifactId>notification-service</artifactId>
@@ -22,6 +22,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream</artifactId>
+        </dependency>
+
+        <!-- Caffeine Cache used to get rid of console WARN! -->
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
         </dependency>
 
         <!-- Spring RabbitMQ -->
@@ -41,6 +47,18 @@
             <groupId>com.muratcanabay</groupId>
             <artifactId>feign-client</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <!-- Spring Sleuth -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
+        <!-- Zipkin - Sleuth Integration  -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
         </dependency>
 
     </dependencies>

@@ -21,6 +21,7 @@ spring:
           ticketReceiver-in-0:
             consumer:
               auto-bind-dlq: true
+
 eureka:
   client:
     serviceUrl:

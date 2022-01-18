@@ -5,7 +5,7 @@ services:
     image: cassandra:4.0.1
     container_name: 'cassandraDB'
     ports:
-    - '9042:9042'
+      - '9042:9042'
 
   mysql:
     image: mysql:8.0.27
@@ -33,3 +33,9 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: 'rabbitmq'
       RABBITMQ_DEFAULT_PASS: 'rabbitmq'
+
+  zipkin:
+    image: openzipkin/zipkin:2.12.9
+    container_name: 'ZipkinServer'
+    ports:
+      - '9411:9411'
