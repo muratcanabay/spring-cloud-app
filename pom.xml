@@ -44,6 +44,7 @@
         <module>ticket-service</module>
         <module>feign-client</module>
         <module>notification-service</module>
+        <module>hystrix-dashboard</module>
     </modules>
 
     <dependencyManagement>
