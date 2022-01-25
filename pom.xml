@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>Spring Cloud Microservice App Application</name>
+    <name>Spring Cloud Microservice Application</name>
     <description>Spring Cloud Microservice Application</description>
 
     <developers>
@@ -44,6 +44,7 @@
         <module>ticket-service</module>
         <module>feign-client</module>
         <module>notification-service</module>
+        <module>api-gateway</module>
         <module>hystrix-dashboard</module>
     </modules>
 
