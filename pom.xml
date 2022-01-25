@@ -46,6 +46,7 @@
         <module>notification-service</module>
         <module>api-gateway</module>
         <module>hystrix-dashboard</module>
+        <module>admin-server</module>
     </modules>
 
     <dependencyManagement>

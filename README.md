@@ -23,5 +23,25 @@ Create a schema name "**ticket**".
 create database ticket;
 ```
 
+## Addresses
+
+Eureka Server localhost:8500
+
+
+Account Service localhost:8501
+
+
+Ticket Service localhost:8502
+
+
+Notification Service localhost:8503
+
+
+Api Gateway localhost:8504
+
+
+Admin Server localhost:8505
+
+
 ## License
 * [MIT](https://choosealicense.com/licenses/mit/)

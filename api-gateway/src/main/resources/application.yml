@@ -28,7 +28,7 @@ spring:
                 fallbackUri: forward:/fallback/ticket
 
 server:
-  port: 8085
+  port: 8504
 
 eureka:
   client:
