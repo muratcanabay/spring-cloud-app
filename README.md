@@ -88,5 +88,4 @@ I used IntelliJ Database Plugin to monitor data.
 
 ![Cassandra](doc/static/image/cassandra.png)
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+## License ![GitHub](https://img.shields.io/github/license/muratcanabay/spring-cloud-app?color=%2326689A)
