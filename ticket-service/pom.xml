@@ -5,12 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>service-parent</artifactId>
-        <groupId>com.muratcanabay</groupId>
+        <groupId>com.mabay</groupId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../service-parent/pom.xml</relativePath>
     </parent>
 
-    <groupId>com.mabay</groupId>
     <artifactId>ticket-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Ticket Microservice</name>
@@ -43,7 +42,7 @@
 
         <!-- Feign Client -->
         <dependency>
-            <groupId>com.muratcanabay</groupId>
+            <groupId>com.mabay</groupId>
             <artifactId>feign-client</artifactId>
             <version>${project.version}</version>
         </dependency>

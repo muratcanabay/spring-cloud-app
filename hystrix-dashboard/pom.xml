@@ -5,11 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>cloud-app</artifactId>
-        <groupId>com.muratcanabay</groupId>
+        <groupId>com.mabay</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.mabay</groupId>
     <artifactId>hystrix-dashboard</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Hystrix Dashboard</name>

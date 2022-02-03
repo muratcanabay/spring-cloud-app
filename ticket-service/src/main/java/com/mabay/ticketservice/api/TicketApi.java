@@ -1,7 +1,7 @@
 package com.mabay.ticketservice.api;
 
-import com.mabay.ticketservice.dto.TicketDto;
 import com.mabay.ticketservice.service.TicketService;
+import com.mabay.ticketservice.dto.TicketDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

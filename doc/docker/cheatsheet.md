@@ -5,3 +5,7 @@ Docker Images Installation
 Docker Compose File Run
 ---
 * docker-compose -f docker-compose.yml up -d
+
+Docker Build
+---
+docker build -f Dockerfile -t microservices:latest .
