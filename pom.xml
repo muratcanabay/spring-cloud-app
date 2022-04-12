@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mabay</groupId>
-    <artifactId>cloud-app</artifactId>
+    <artifactId>spring-cloud-app</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
